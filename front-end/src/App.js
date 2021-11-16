@@ -1,25 +1,12 @@
-
-import './App.css';
-
+import { StyledApp } from "./app.styles.js";
+import Craps from "./components/Craps/Craps.js";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<StyledApp>
+			<header className="App-header">Craps is a fun game</header>
+			<Craps />
+		</StyledApp>
+	);
 }
 
 export default App;
