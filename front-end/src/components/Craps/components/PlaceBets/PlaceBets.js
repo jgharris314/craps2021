@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { StyledPlaceBets } from "./place-bets.styles";
 
-const PlaceBets = ({ bets, setBets, bankroll, setBankroll }) => {
+const PlaceBets = ({
+	bets,
+	setBets,
+	bankroll,
+	setBankroll,
+	incrementValue,
+}) => {
 	const [rerender, setRerender] = useState(false);
 	const bettableNums = [4, 5, 6, 8, 9, 10];
 
 	//To simulate casino cheques
-	const bettingIncrements = [5, 25, 100, 500];
+
 	//Add a spot to adjust increment value? probs but idk where yet
-	const defaultIncrement = 5;
-	const [incrementValue, setIncrementValue] = useState(defaultIncrement);
+
 	const sixEightIncrement = incrementValue + incrementValue / 5;
 	//increase bet based on increment value. if 6 or 8, the increment is divisible by 6
-	const handleIncrease = (value) => {
+	const handlePlaceBetIncrease = (value) => {
 		if (bankroll >= incrementValue) {
 			if (value !== 6 && value !== 8) {
-				setBets(bets, (bets[value] += incrementValue));
+				setBets(bets, (bets.placeBets[value] += incrementValue));
 				setBankroll((bankroll -= incrementValue));
 			} else {
 				// let tempIncrement = incrementValue / 5;
-				setBets(bets, (bets[value] += sixEightIncrement));
+				setBets(bets, (bets.placeBets[value] += sixEightIncrement));
 				setBankroll((bankroll -= sixEightIncrement));
 			}
 		}
@@ -27,25 +32,51 @@ const PlaceBets = ({ bets, setBets, bankroll, setBankroll }) => {
 	};
 	//decrease bet based on increment value. if 6 or 8, the increment is divisible by 6
 
-	const handleDecrease = (value) => {
-		if (bets[value] < incrementValue) {
-			setBankroll((bankroll += bets[value]));
-			setBets(bets, (bets[value] = 0));
+	const handlePlaceBetDecrease = (value) => {
+		if (bets.placeBets[value] < incrementValue) {
+			setBankroll((bankroll += bets.placeBets[value]));
+			setBets(bets, (bets.placeBets[value] = 0));
 		} else if (value !== 6 && value !== 8) {
-			setBets(bets, (bets[value] -= incrementValue));
+			setBets(bets, (bets.placeBets[value] -= incrementValue));
+
 			setBankroll((bankroll += incrementValue));
 		} else {
-			setBets(bets, (bets[value] -= sixEightIncrement));
+			setBets(bets, (bets.placeBets[value] -= sixEightIncrement));
 			setBankroll((bankroll += sixEightIncrement));
 		}
 
 		setRerender(!rerender);
 	};
 
-	const handleIncrementChange = (event) => {
-		event.preventDefault();
-		setIncrementValue(Number(event.target.value));
+	//max odds = 20 times your come bet flat...
+	const maxOdds = 20;
+	const handleComeBetOddsIncrease = (value) => {
+		//Check to see if at max odds
+		const currentMax = bets.comeBetFlats[value] * maxOdds;
+		if (bets.comeBetOdds[value] === currentMax) return null;
+		//If trying to press over max odds
+		else if (bets.comeBetOdds[value] + incrementValue > currentMax) {
+			const difference = currentMax - bets.comeBetOdds[value];
+			setBets(bets, (bets.comeBetOdds[value] = currentMax));
+			setBankroll((bankroll -= difference));
+		} else {
+			setBets(bets, (bets.comeBetOdds[value] += incrementValue));
+			setBankroll((bankroll -= incrementValue));
+		}
+		setRerender(!rerender);
 	};
+
+	const handleComeBetOddsDecrease = (value) => {
+		if (bets.comeBetOdds[value] < incrementValue) {
+			setBankroll((bankroll += bets.comeBetOdds[value]));
+			setBets(bets, (bets.comeBetOdds[value] = 0));
+		} else {
+			setBets(bets, (bets.comeBetOdds[value] -= incrementValue));
+
+			setBankroll((bankroll += incrementValue));
+		}
+	};
+
 	useEffect(() => {
 		// when bet value is changed, rerenders
 	}, [rerender]);
@@ -56,31 +87,51 @@ const PlaceBets = ({ bets, setBets, bankroll, setBankroll }) => {
 					<div className="placebet-number">
 						{e !== 6 && e !== 9 ? e : e === 6 ? "Six" : "Nine"}
 					</div>
-					<div className="placebet-value">${bets[e]}</div>
-
-					<div className="placebet-buttons">
-						<div
-							className="placebet-buttons-decrease"
-							onClick={() => handleDecrease(e)}
-						>
-							Decrease
+					<div className="comebet">
+						<div className="comebet-title">Come Bets</div>
+						<div className="comebet-value">
+							Odds: ${bets.comeBetOdds[e]}
 						</div>
-						<div
-							onClick={() => handleIncrease(e)}
-							className="placebet-buttons-increase"
-						>
-							Increase
+						<div className="comebet-value">
+							Flat: ${bets.comeBetFlats[e]}
+						</div>
+
+						<div className="buttons">
+							<div
+								className="buttons-decrease"
+								onClick={() => handleComeBetOddsDecrease(e)}
+							>
+								-
+							</div>
+							<div
+								onClick={() => handleComeBetOddsIncrease(e)}
+								className="buttons-increase"
+							>
+								+
+							</div>
+						</div>
+					</div>
+					<div className="placebet-value">
+						<div>Place Bets</div>
+						<div> ${bets.placeBets[e]}</div>
+
+						<div className="buttons">
+							<div
+								className="buttons-decrease"
+								onClick={() => handlePlaceBetDecrease(e)}
+							>
+								-
+							</div>
+							<div
+								onClick={() => handlePlaceBetIncrease(e)}
+								className="buttons-increase"
+							>
+								+
+							</div>
 						</div>
 					</div>
 				</div>
 			))}
-			<select onChange={handleIncrementChange}>
-				{bettingIncrements.map((e, index) => (
-					<option value={e} key={index}>
-						{e}
-					</option>
-				))}
-			</select>
 		</StyledPlaceBets>
 	);
 };
