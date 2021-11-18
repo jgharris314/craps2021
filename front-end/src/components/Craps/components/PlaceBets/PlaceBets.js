@@ -9,6 +9,8 @@ const PlaceBets = ({
 	incrementValue,
 	rerender,
 	setRerender,
+	pointOnNumber,
+	maxOdds,
 }) => {
 	const bettableNums = [4, 5, 6, 8, 9, 10];
 
@@ -50,19 +52,21 @@ const PlaceBets = ({
 	};
 
 	//max odds = 20 times your come bet flat...
-	const maxOdds = 20;
+
 	const handleComeBetOddsIncrease = (value) => {
 		//Check to see if at max odds
 		const currentMax = bets.comeBetFlats[value] * maxOdds;
-		if (bets.comeBetOdds[value] === currentMax) return null;
-		//If trying to press over max odds
-		else if (bets.comeBetOdds[value] + incrementValue > currentMax) {
-			const difference = currentMax - bets.comeBetOdds[value];
-			setBets(bets, (bets.comeBetOdds[value] = currentMax));
-			setBankroll((bankroll -= difference));
-		} else {
-			setBets(bets, (bets.comeBetOdds[value] += incrementValue));
-			setBankroll((bankroll -= incrementValue));
+		if (bankroll >= incrementValue) {
+			if (bets.comeBetOdds[value] === currentMax) return null;
+			//If trying to press over max odds
+			else if (bets.comeBetOdds[value] + incrementValue > currentMax) {
+				const difference = currentMax - bets.comeBetOdds[value];
+				setBets(bets, (bets.comeBetOdds[value] = currentMax));
+				setBankroll((bankroll -= difference));
+			} else {
+				setBets(bets, (bets.comeBetOdds[value] += incrementValue));
+				setBankroll((bankroll -= incrementValue));
+			}
 		}
 		setRerender(!rerender);
 	};
@@ -82,7 +86,14 @@ const PlaceBets = ({
 		<StyledPlaceBets>
 			{bettableNums.map((e, index) => (
 				<div key={index} className="placebet">
-					<div className="placebet-number">
+					<div
+						className="placebet-number"
+						style={
+							pointOnNumber === e
+								? { backgroundColor: "gold" }
+								: null
+						}
+					>
 						{e !== 6 && e !== 9 ? e : e === 6 ? "Six" : "Nine"}
 					</div>
 					<div className="comebet">
