@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-export const StyledComeBet = styled.div`
+export const StyledField = styled.div`
 	background-color: rgba(255, 255, 255, 0.18);
 	box-shadow: 0px 0px 5px black;
-	/* border-radius: 5px; */
 	width: 95%;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
 	color: white;
+	margin-top: 15px;
+	justify-content: center;
+
 	.buttons {
 		height: 25px;
 		margin: 5px;
@@ -20,7 +21,6 @@ export const StyledComeBet = styled.div`
 		justify-content: space-evenly;
 		width: 10%;
 		min-width: 80px;
-
 		&-increase {
 			text-align: center;
 			margin: 0 auto;
@@ -40,5 +40,12 @@ export const StyledComeBet = styled.div`
 			border-radius: 5px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
 		}
+	}
+
+	.field-numbers {
+		display: flex;
+		justify-content: space-evenly;
+		flex-direction: row;
+		width: 100%;
 	}
 `;

@@ -5,13 +5,13 @@ export const StyledPlaceBets = styled.div`
 
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	/* justify-content; */
 	width: 95%;
 
 	.placebet {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		/* justify-content: space-evenly; */
 		width: 100%;
 		text-align: center;
 
@@ -29,7 +29,7 @@ export const StyledPlaceBets = styled.div`
 			border-radius: 5px;
 			align-items: center;
 			margin-bottom: 5px;
-			font-size: 36px;
+			font-size: 72px;
 			color: white;
 			width: 100%;
 		}
@@ -90,6 +90,6 @@ export const StyledPlaceBets = styled.div`
 		align-items: center;
 		color: white;
 		margin: 5px auto;
-		padding: 2%;
+		padding: 1%;
 	}
 `;

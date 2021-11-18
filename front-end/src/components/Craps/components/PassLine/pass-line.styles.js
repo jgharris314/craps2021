@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
-export const StyledComeBet = styled.div`
+export const StyledPassLine = styled.div`
 	background-color: rgba(255, 255, 255, 0.18);
 	box-shadow: 0px 0px 5px black;
-	/* border-radius: 5px; */
 	width: 95%;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
 	color: white;
+	margin-top: 15px;
+	justify-content: center;
+
 	.buttons {
 		height: 25px;
 		margin: 5px;
 
-		width: 50%;
+		width: 10%;
+		min-width: 80px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-evenly;
-		width: 10%;
-		min-width: 80px;
 
 		&-increase {
 			text-align: center;

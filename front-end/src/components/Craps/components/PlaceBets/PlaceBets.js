@@ -7,8 +7,9 @@ const PlaceBets = ({
 	bankroll,
 	setBankroll,
 	incrementValue,
+	rerender,
+	setRerender,
 }) => {
-	const [rerender, setRerender] = useState(false);
 	const bettableNums = [4, 5, 6, 8, 9, 10];
 
 	//To simulate casino cheques
@@ -77,9 +78,6 @@ const PlaceBets = ({
 		}
 	};
 
-	useEffect(() => {
-		// when bet value is changed, rerenders
-	}, [rerender]);
 	return (
 		<StyledPlaceBets>
 			{bettableNums.map((e, index) => (
@@ -123,8 +121,8 @@ const PlaceBets = ({
 								-
 							</div>
 							<div
-								onClick={() => handlePlaceBetIncrease(e)}
 								className="buttons-increase"
+								onClick={() => handlePlaceBetIncrease(e)}
 							>
 								+
 							</div>
