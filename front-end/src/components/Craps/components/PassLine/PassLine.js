@@ -74,7 +74,7 @@ const PassLine = ({
 				</div>
 			</div>
 			<div className="passLine-odds">Odds</div>
-			<div>${bets.passLineOdds}</div>
+			<div> ${bets.passLineOdds}</div>
 			<div className="buttons">
 				<div
 					className="buttons-decrease"

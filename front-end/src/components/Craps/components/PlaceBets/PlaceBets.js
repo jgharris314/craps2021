@@ -97,7 +97,7 @@ const PlaceBets = ({
 						{e !== 6 && e !== 9 ? e : e === 6 ? "Six" : "Nine"}
 					</div>
 					<div className="comebet">
-						<div className="comebet-title">Come Bets</div>
+						<div className="comebet-title">Come Bet</div>
 						<div className="comebet-value">
 							Odds: ${bets.comeBetOdds[e]}
 						</div>
@@ -121,7 +121,7 @@ const PlaceBets = ({
 						</div>
 					</div>
 					<div className="placebet-value">
-						<div>Place Bets</div>
+						<div>Place Bet</div>
 						<div> ${bets.placeBets[e]}</div>
 
 						<div className="buttons">

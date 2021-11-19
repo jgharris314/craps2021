@@ -408,46 +408,60 @@ const Craps = () => {
 				pointOnNumber={pointOnNumber}
 				maxOdds={maxOdds}
 			/>
-			<ComeBet
-				bets={bets}
-				setBets={setBets}
-				bankroll={bankroll}
-				setBankroll={setBankroll}
-				incrementValue={incrementValue}
-				rerender={rerender}
-				setRerender={setRerender}
-				pointOnNumber={pointOnNumber}
-			/>
-			<Field
-				bets={bets}
-				setBets={setBets}
-				bankroll={bankroll}
-				setBankroll={setBankroll}
-				incrementValue={incrementValue}
-				rerender={rerender}
-				setRerender={setRerender}
-			/>
-			<PassLine
-				bets={bets}
-				setBets={setBets}
-				bankroll={bankroll}
-				setBankroll={setBankroll}
-				incrementValue={incrementValue}
-				rerender={rerender}
-				setRerender={setRerender}
-				maxOdds={maxOdds}
-			/>
-			Bankroll {bankroll}
-			<br /> Denomination
-			<select onChange={handleIncrementChange}>
-				{bettingIncrements.map((e, index) => (
-					<option value={e} key={index}>
-						{e}
-					</option>
-				))}
-			</select>
-			<button onClick={() => rollDice()}>Roll em</button>
-			{dieOne} {dieTwo} {dieTotal} {pointOnNumber}
+			<div className="control-row">
+				<div className="control-column">
+					<div className="non-number-section">
+						<ComeBet
+							bets={bets}
+							setBets={setBets}
+							bankroll={bankroll}
+							setBankroll={setBankroll}
+							incrementValue={incrementValue}
+							rerender={rerender}
+							setRerender={setRerender}
+							pointOnNumber={pointOnNumber}
+						/>
+					</div>
+					<div className="non-number-section">
+						<Field
+							bets={bets}
+							setBets={setBets}
+							bankroll={bankroll}
+							setBankroll={setBankroll}
+							incrementValue={incrementValue}
+							rerender={rerender}
+							setRerender={setRerender}
+						/>
+					</div>
+					<div className="non-number-section">
+						<PassLine
+							bets={bets}
+							setBets={setBets}
+							bankroll={bankroll}
+							setBankroll={setBankroll}
+							incrementValue={incrementValue}
+							rerender={rerender}
+							setRerender={setRerender}
+							maxOdds={maxOdds}
+						/>
+					</div>
+				</div>
+				<div className="control-column">
+					Bankroll {bankroll}
+					<br /> Denomination
+					<select onChange={handleIncrementChange}>
+						{bettingIncrements.map((e, index) => (
+							<option value={e} key={index}>
+								{e}
+							</option>
+						))}
+					</select>
+					<button className="roll-button" onClick={() => rollDice()}>
+						Roll em
+					</button>
+					{dieOne} {dieTwo} {dieTotal} {pointOnNumber}
+				</div>
+			</div>
 		</StyledCraps>
 	);
 };
