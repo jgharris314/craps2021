@@ -14,6 +14,12 @@ export const StyledPlaceBets = styled.div`
 
 		&-number {
 			background-color: rgba(255, 255, 255, 0.18);
+			background-image: linear-gradient(
+				45deg,
+				rgba(10, 10, 10, 0.3),
+				rgba(255, 255, 255, 0.3),
+				rgba(10, 10, 10, 0.3)
+			);
 			display: flex;
 			justify-content: center;
 			height: 100px;
@@ -29,6 +35,12 @@ export const StyledPlaceBets = styled.div`
 		}
 		&-value {
 			background-color: rgba(255, 255, 255, 0.18);
+			background-image: linear-gradient(
+				45deg,
+				rgba(10, 10, 10, 0.3),
+				rgba(255, 255, 255, 0.3),
+				rgba(10, 10, 10, 0.3)
+			);
 			display: flex;
 			flex-direction: column;
 			width: 100%;
@@ -55,6 +67,7 @@ export const StyledPlaceBets = styled.div`
 		align-items: center;
 		color: black;
 		font-weight: bold;
+
 		&-increase {
 			margin: 0 auto;
 			padding: 0.4%;
@@ -62,6 +75,12 @@ export const StyledPlaceBets = styled.div`
 			width: 45%;
 			border-radius: 5px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
+			background-image: linear-gradient(
+				45deg,
+				rgba(10, 10, 10, 0.3),
+				rgba(255, 255, 255, 0.3),
+				rgba(10, 10, 10, 0.3)
+			);
 		}
 		&-decrease {
 			margin: 0 auto;
@@ -70,11 +89,23 @@ export const StyledPlaceBets = styled.div`
 			width: 45%;
 			border-radius: 5px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
+			background-image: linear-gradient(
+				45deg,
+				rgba(10, 10, 10, 0.3),
+				rgba(255, 255, 255, 0.3),
+				rgba(10, 10, 10, 0.3)
+			);
 		}
 	}
 
 	.comebet {
 		background-color: rgba(255, 255, 255, 0.18);
+		background-image: linear-gradient(
+			45deg,
+			rgba(10, 10, 10, 0.3),
+			rgba(255, 255, 255, 0.3),
+			rgba(10, 10, 10, 0.3)
+		);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

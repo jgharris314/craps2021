@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const StyledPassLine = styled.div`
 	background-color: rgba(255, 255, 255, 0.18);
+	background-image: linear-gradient(
+		45deg,
+		rgba(10, 10, 10, 0.3),
+		rgba(255, 255, 255, 0.3),
+		rgba(10, 10, 10, 0.3)
+	);
 	box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
 	border: 1px solid black;
 	border-radius: 5px;
@@ -35,6 +41,12 @@ export const StyledPassLine = styled.div`
 			width: 45%;
 			border-radius: 5px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
+			background-image: linear-gradient(
+				45deg,
+				rgba(10, 10, 10, 0.3),
+				rgba(255, 255, 255, 0.3),
+				rgba(10, 10, 10, 0.3)
+			);
 		}
 		&-decrease {
 			text-align: center;
@@ -44,6 +56,12 @@ export const StyledPassLine = styled.div`
 			width: 45%;
 			border-radius: 5px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
+			background-image: linear-gradient(
+				45deg,
+				rgba(10, 10, 10, 0.3),
+				rgba(255, 255, 255, 0.3),
+				rgba(10, 10, 10, 0.3)
+			);
 		}
 	}
 `;

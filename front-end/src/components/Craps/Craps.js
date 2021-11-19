@@ -33,8 +33,8 @@ const Craps = () => {
 	const [dieOne, setdieOne] = useState(0);
 	const [dieTwo, setdieTwo] = useState(0);
 	const [dieTotal, setDieTotal] = useState(dieOne + dieTwo);
-
-	const rollDice = () => {
+	let rollCount = 0;
+	const rollDice = useCallback(() => {
 		setDieTotal(0);
 		setdieOne(0);
 		setdieTwo(0);
@@ -42,11 +42,11 @@ const Craps = () => {
 			setdieOne(1 + Math.floor(Math.random() * 6));
 			setdieTwo(1 + Math.floor(Math.random() * 6));
 		}
-	};
+	});
 
 	useEffect(() => {
 		setDieTotal(dieOne + dieTwo);
-	}, [dieOne, dieTwo]);
+	}, [dieOne, dieTwo, rollDice]);
 
 	// Odds for paying numbers
 	const placeBetFourTenOdds = 9 / 5;
@@ -443,6 +443,7 @@ const Craps = () => {
 							rerender={rerender}
 							setRerender={setRerender}
 							maxOdds={maxOdds}
+							pointOnNumber={pointOnNumber}
 						/>
 					</div>
 				</div>

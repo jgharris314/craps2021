@@ -10,6 +10,7 @@ const PassLine = ({
 	rerender,
 	setRerender,
 	maxOdds,
+	pointOnNumber,
 }) => {
 	const handlePassLineIncrease = () => {
 		if (bankroll >= incrementValue) {
@@ -20,13 +21,16 @@ const PassLine = ({
 	};
 
 	const handlePassLineDecrease = () => {
-		//if the bet is smaller than the increment, just give bet back.
-		if (bets.passLine < incrementValue) {
-			setBankroll((bankroll += bets.passLine));
-			setBets(bets, (bets.passLine = 0));
-		} else {
-			setBets(bets, (bets.passLine -= incrementValue));
-			setBankroll((bankroll += incrementValue));
+		//if there is no point allow otherwise dont allow
+		if (pointOnNumber === 0) {
+			//if the bet is smaller than the increment, just give bet back.
+			if (bets.passLine < incrementValue) {
+				setBankroll((bankroll += bets.passLine));
+				setBets(bets, (bets.passLine = 0));
+			} else {
+				setBets(bets, (bets.passLine -= incrementValue));
+				setBankroll((bankroll += incrementValue));
+			}
 		}
 	};
 

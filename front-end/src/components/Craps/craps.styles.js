@@ -1,10 +1,12 @@
 import styled from "styled-components";
-
+// #5e0788 purple
 export const StyledCraps = styled.div`
 	background-color: #5e0788;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	height: 100vh;
 
 	.control-row {
 		display: flex;
@@ -36,5 +38,11 @@ export const StyledCraps = styled.div`
 		background-color: lime;
 		border: none;
 		border-radius: 5px;
+		background-image: linear-gradient(
+			45deg,
+			rgba(10, 10, 10, 0.3),
+			rgba(255, 255, 255, 0.3),
+			rgba(10, 10, 10, 0.3)
+		);
 	}
 `;
