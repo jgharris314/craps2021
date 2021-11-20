@@ -33,7 +33,7 @@ const ComeBet = ({
 	};
 	return (
 		<StyledComeBet>
-			<div>COME</div> <div>${bets.comeBet}</div>
+			<div>COME ${bets.comeBet}</div>
 			<div className="buttons">
 				<div
 					className="buttons-decrease"

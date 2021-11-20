@@ -30,9 +30,9 @@ const Field = ({
 	};
 	return (
 		<StyledField>
-			<div>Field</div>
+			<div>Field ${bets.fieldBet}</div>
 			<div className="field-numbers">2 3 4 9 10 11 12</div>
-			<div>${bets.fieldBet}</div>
+
 			<div className="buttons">
 				<div
 					className="buttons-decrease"

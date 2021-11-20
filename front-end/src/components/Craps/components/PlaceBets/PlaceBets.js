@@ -90,7 +90,7 @@ const PlaceBets = ({
 						className="placebet-number"
 						style={
 							pointOnNumber === e
-								? { backgroundColor: "gold" }
+								? { backgroundColor: "lime", color: "black" }
 								: null
 						}
 					>
@@ -121,8 +121,7 @@ const PlaceBets = ({
 						</div>
 					</div>
 					<div className="placebet-value">
-						<div>Place Bet</div>
-						<div> ${bets.placeBets[e]}</div>
+						<div>Place Bet ${bets.placeBets[e]}</div>
 
 						<div className="buttons">
 							<div

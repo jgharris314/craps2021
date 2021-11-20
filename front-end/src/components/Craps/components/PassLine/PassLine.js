@@ -62,7 +62,7 @@ const PassLine = ({
 	};
 	return (
 		<StyledPassLine>
-			<div>Pass Line</div> <div>${bets.passLine}</div>
+			<div>Pass Line ${bets.passLine}</div>
 			<div className="buttons">
 				<div
 					className="buttons-decrease"
@@ -77,8 +77,7 @@ const PassLine = ({
 					+
 				</div>
 			</div>
-			<div className="passLine-odds">Odds</div>
-			<div> ${bets.passLineOdds}</div>
+			<div className="passLine-odds">Odds ${bets.passLineOdds}</div>
 			<div className="buttons">
 				<div
 					className="buttons-decrease"

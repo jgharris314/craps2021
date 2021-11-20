@@ -23,8 +23,8 @@ export const StyledPlaceBets = styled.div`
 			display: flex;
 			justify-content: center;
 			height: 100px;
-			border: 1px solid black;
-			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
+			/* border: 1px solid black; */
+			box-shadow: 0px 0px 5px black inset, 0px 0px 5px white;
 			border-radius: 5px;
 			align-items: center;
 			margin-bottom: 5px;
@@ -46,8 +46,8 @@ export const StyledPlaceBets = styled.div`
 			width: 100%;
 			justify-content: center;
 			font-size: 2.4rem;
-			border: 1px solid black;
-			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
+			/* border: 1px solid black; */
+			box-shadow: 0px 0px 5px black inset, 0px 0px 5px white;
 			border-radius: 5px;
 			align-items: center;
 			color: white;
@@ -85,7 +85,8 @@ export const StyledPlaceBets = styled.div`
 		&-decrease {
 			margin: 0 auto;
 			padding: 0.4%;
-			background-color: #ff7619;
+			//#ff7619
+			background-color: cyan;
 			width: 45%;
 			border-radius: 5px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
@@ -110,8 +111,8 @@ export const StyledPlaceBets = styled.div`
 		flex-direction: column;
 		justify-content: center;
 		width: 100%;
-		border: 1px solid black;
-		box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
+		/* border: 1px solid black; */
+		box-shadow: 0px 0px 5px black inset, 0px 0px 5px white;
 		border-radius: 5px;
 		align-items: center;
 		color: white;

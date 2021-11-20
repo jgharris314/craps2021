@@ -4,6 +4,7 @@ import PlaceBets from "./components/PlaceBets/PlaceBets";
 import ComeBet from "./components/ComeBet/ComeBet";
 import Field from "./components/Field/Field";
 import PassLine from "./components/PassLine/PassLine";
+import DontBet from "./components/DontBet/DontBet";
 //The main component. Renders individual layout components.
 const Craps = () => {
 	const maxOdds = 20;
@@ -394,6 +395,53 @@ const Craps = () => {
 		event.preventDefault();
 		setIncrementValue(Number(event.target.value));
 	};
+
+	const nonNumberComponentList = [
+		<ComeBet
+			bets={bets}
+			setBets={setBets}
+			bankroll={bankroll}
+			setBankroll={setBankroll}
+			incrementValue={incrementValue}
+			rerender={rerender}
+			setRerender={setRerender}
+			pointOnNumber={pointOnNumber}
+			maxOdds={maxOdds}
+		/>,
+		<Field
+			bets={bets}
+			setBets={setBets}
+			bankroll={bankroll}
+			setBankroll={setBankroll}
+			incrementValue={incrementValue}
+			rerender={rerender}
+			setRerender={setRerender}
+			pointOnNumber={pointOnNumber}
+			maxOdds={maxOdds}
+		/>,
+		<DontBet
+			bets={bets}
+			setBets={setBets}
+			bankroll={bankroll}
+			setBankroll={setBankroll}
+			incrementValue={incrementValue}
+			rerender={rerender}
+			setRerender={setRerender}
+			pointOnNumber={pointOnNumber}
+			maxOdds={maxOdds}
+		/>,
+		<PassLine
+			bets={bets}
+			setBets={setBets}
+			bankroll={bankroll}
+			setBankroll={setBankroll}
+			incrementValue={incrementValue}
+			rerender={rerender}
+			setRerender={setRerender}
+			pointOnNumber={pointOnNumber}
+			maxOdds={maxOdds}
+		/>,
+	];
 	return (
 		<StyledCraps>
 			<PlaceBets
@@ -402,7 +450,6 @@ const Craps = () => {
 				bankroll={bankroll}
 				setBankroll={setBankroll}
 				incrementValue={incrementValue}
-				setIncrementValue={setIncrementValue}
 				rerender={rerender}
 				setRerender={setRerender}
 				pointOnNumber={pointOnNumber}
@@ -410,42 +457,13 @@ const Craps = () => {
 			/>
 			<div className="control-row">
 				<div className="control-column">
-					<div className="non-number-section">
-						<ComeBet
-							bets={bets}
-							setBets={setBets}
-							bankroll={bankroll}
-							setBankroll={setBankroll}
-							incrementValue={incrementValue}
-							rerender={rerender}
-							setRerender={setRerender}
-							pointOnNumber={pointOnNumber}
-						/>
-					</div>
-					<div className="non-number-section">
-						<Field
-							bets={bets}
-							setBets={setBets}
-							bankroll={bankroll}
-							setBankroll={setBankroll}
-							incrementValue={incrementValue}
-							rerender={rerender}
-							setRerender={setRerender}
-						/>
-					</div>
-					<div className="non-number-section">
-						<PassLine
-							bets={bets}
-							setBets={setBets}
-							bankroll={bankroll}
-							setBankroll={setBankroll}
-							incrementValue={incrementValue}
-							rerender={rerender}
-							setRerender={setRerender}
-							maxOdds={maxOdds}
-							pointOnNumber={pointOnNumber}
-						/>
-					</div>
+					{nonNumberComponentList.map((e, index) => {
+						return (
+							<div className="non-number-item" key={index}>
+								{e}
+							</div>
+						);
+					})}
 				</div>
 				<div className="control-column">
 					Bankroll {bankroll}
