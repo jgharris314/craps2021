@@ -66,7 +66,7 @@ export const StyledCraps = styled.div`
 		color: white;
 		margin-top: 15px;
 		justify-content: center;
-		font-size: 2.4rem;
+		font-size: 2rem;
 		text-align: center;
 
 		.buttons {

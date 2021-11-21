@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { StyledPlaceBets } from "./place-bets.styles";
+import { StyledNumberSection } from "./number-section.styles";
 
-const PlaceBets = ({
+const NumberSection = ({
 	bets,
 	setBets,
 	bankroll,
@@ -83,9 +83,35 @@ const PlaceBets = ({
 	};
 
 	return (
-		<StyledPlaceBets>
+		<StyledNumberSection>
 			{bettableNums.map((e, index) => (
 				<div key={index} className="placebet">
+					{/* Dont bets section */}
+					<div className="number-section">
+						<div className="number-section-title">Dont Bet</div>
+						<div className="number-section-value">
+							Odds: ${bets.dontBetOdds[e]}
+						</div>
+						<div className="comebet-value">
+							Flat: ${bets.dontBetFlats[e]}
+						</div>
+
+						<div className="buttons">
+							<div
+								className="buttons-decrease"
+								// onClick={() => handleComeBetOddsDecrease(e)}
+							>
+								-
+							</div>
+							<div
+								// onClick={() => handleComeBetOddsIncrease(e)}
+								className="buttons-increase"
+							>
+								+
+							</div>
+						</div>
+					</div>
+					{/* Number display */}
 					<div
 						className="placebet-number"
 						style={
@@ -96,12 +122,13 @@ const PlaceBets = ({
 					>
 						{e !== 6 && e !== 9 ? e : e === 6 ? "Six" : "Nine"}
 					</div>
-					<div className="comebet">
-						<div className="comebet-title">Come Bet</div>
-						<div className="comebet-value">
+					{/* Come bet section */}
+					<div className="number-section">
+						<div className="number-section-title">Come Bet</div>
+						<div className="number-section-value">
 							Odds: ${bets.comeBetOdds[e]}
 						</div>
-						<div className="comebet-value">
+						<div className="number-section-value">
 							Flat: ${bets.comeBetFlats[e]}
 						</div>
 
@@ -120,6 +147,7 @@ const PlaceBets = ({
 							</div>
 						</div>
 					</div>
+					{/* Place Bet Section */}
 					<div className="placebet-value">
 						<div>Place Bet ${bets.placeBets[e]}</div>
 
@@ -140,8 +168,8 @@ const PlaceBets = ({
 					</div>
 				</div>
 			))}
-		</StyledPlaceBets>
+		</StyledNumberSection>
 	);
 };
 
-export default PlaceBets;
+export default NumberSection;

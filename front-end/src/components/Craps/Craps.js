@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { StyledCraps } from "./craps.styles";
-import PlaceBets from "./components/PlaceBets/PlaceBets";
+import NumberSection from "./components/PlaceBets/NumberSection";
 import ComeBet from "./components/ComeBet/ComeBet";
 import Field from "./components/Field/Field";
 import PassLine from "./components/PassLine/PassLine";
@@ -13,6 +13,9 @@ const Craps = () => {
 		comeBetFlats: { 4: 0, 5: 0, 6: 0, 8: 0, 9: 0, 10: 0 },
 		comeBetOdds: { 4: 0, 5: 0, 6: 0, 8: 0, 9: 0, 10: 0 },
 		comeBet: 0,
+		dontBetFlats: { 4: 0, 5: 0, 6: 0, 8: 0, 9: 0, 10: 0 },
+		dontBetOdds: { 4: 0, 5: 0, 6: 0, 8: 0, 9: 0, 10: 0 },
+		dontBet: 0,
 		fieldBet: 0,
 		passLine: 0,
 		passLineOdds: 0,
@@ -34,7 +37,7 @@ const Craps = () => {
 	const [dieOne, setdieOne] = useState(0);
 	const [dieTwo, setdieTwo] = useState(0);
 	const [dieTotal, setDieTotal] = useState(dieOne + dieTwo);
-	let rollCount = 0;
+
 	const rollDice = useCallback(() => {
 		setDieTotal(0);
 		setdieOne(0);
@@ -444,7 +447,7 @@ const Craps = () => {
 	];
 	return (
 		<StyledCraps>
-			<PlaceBets
+			<NumberSection
 				bets={bets}
 				setBets={setBets}
 				bankroll={bankroll}

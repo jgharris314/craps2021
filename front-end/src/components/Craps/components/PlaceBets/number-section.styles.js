@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledPlaceBets = styled.div`
+export const StyledNumberSection = styled.div`
 	display: flex;
 	flex-direction: row;
 	width: 95%;
@@ -22,16 +22,16 @@ export const StyledPlaceBets = styled.div`
 			);
 			display: flex;
 			justify-content: center;
-			height: 100px;
+			height: 80px;
 			/* border: 1px solid black; */
-			box-shadow: 0px 0px 5px black inset, 0px 0px 5px white;
+			box-shadow: 0px 0px 5px black inset, 0px 0px 3px white;
 			border-radius: 5px;
 			align-items: center;
-			margin-bottom: 5px;
+			margin: 5px auto;
 			font-size: 7rem;
 			color: white;
 			width: 100%;
-			padding: 1%;
+			/* padding: 1%; */
 		}
 		&-value {
 			background-color: rgba(255, 255, 255, 0.18);
@@ -47,12 +47,12 @@ export const StyledPlaceBets = styled.div`
 			justify-content: center;
 			font-size: 2.4rem;
 			/* border: 1px solid black; */
-			box-shadow: 0px 0px 5px black inset, 0px 0px 5px white;
+			box-shadow: 0px 0px 5px black inset, 0px 0px 3px white;
 			border-radius: 5px;
 			align-items: center;
 			color: white;
 			margin: 5px auto;
-			padding: 1%;
+			/* padding: 1%; */
 		}
 	}
 
@@ -99,7 +99,7 @@ export const StyledPlaceBets = styled.div`
 		}
 	}
 
-	.comebet {
+	.number-section {
 		background-color: rgba(255, 255, 255, 0.18);
 		background-image: linear-gradient(
 			45deg,
@@ -112,12 +112,12 @@ export const StyledPlaceBets = styled.div`
 		justify-content: center;
 		width: 100%;
 		/* border: 1px solid black; */
-		box-shadow: 0px 0px 5px black inset, 0px 0px 5px white;
+		box-shadow: 0px 0px 5px black inset, 0px 0px 3px white;
 		border-radius: 5px;
 		align-items: center;
 		color: white;
 		margin: 5px auto;
-		padding: 1%;
-		font-size: 2.4rem;
+		/* padding: 1%; */
+		font-size: 2rem;
 	}
 `;

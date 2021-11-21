@@ -1,36 +1,49 @@
 import React from "react";
-import { StyledComeBet } from "../ComeBet/come-bet.styles";
+
 import { StyledDontBet } from "./dont-bet.styles";
 
-const DontBet = () => {
+const DontBet = ({
+	bets,
+	setBets,
+	bankroll,
+	setBankroll,
+	incrementValue,
+	rerender,
+	setRerender,
+	pointOnNumber,
+	maxOdds,
+}) => {
+	const handleDontBetFlatIncrease = () => {
+		if (bankroll >= incrementValue) {
+			setBets(bets, (bets.dontBet += incrementValue));
+			setBankroll((bankroll -= incrementValue));
+		}
+		setRerender(!rerender);
+	};
+
+	const handleDontBetFlatDecrease = () => {
+		//if the bet is smaller than the increment, just give bet back.
+		if (bets.dontBet < incrementValue) {
+			setBankroll((bankroll += bets.dontBet));
+			setBets(bets, (bets.dontBet = 0));
+		} else {
+			setBets(bets, (bets.dontBet -= incrementValue));
+			setBankroll((bankroll += incrementValue));
+		}
+	};
 	return (
 		<StyledDontBet>
-			<div>Don't Pass/Don't Come $0</div>
+			<div>Don't Pass/Don't Come ${bets.dontBet}</div>
 			<div className="buttons">
 				<div
 					className="buttons-decrease"
-					// onClick={() => handlePassLineDecrease()}
+					onClick={() => handleDontBetFlatDecrease()}
 				>
 					-
 				</div>
 				<div
 					className="buttons-increase"
-					// onClick={() => handlePassLineIncrease()}
-				>
-					+
-				</div>
-			</div>
-			<div className="passLine-odds">Odds $0</div>
-			<div className="buttons">
-				<div
-					className="buttons-decrease"
-					// onClick={() => handlePassLineOddsDecrease()}
-				>
-					-
-				</div>
-				<div
-					className="buttons-increase"
-					// onClick={() => handlePassLineOddsIncrease()}
+					onClick={() => handleDontBetFlatIncrease()}
 				>
 					+
 				</div>
