@@ -88,12 +88,11 @@ const NumberSection = ({
 				<div key={index} className="placebet">
 					{/* Dont bets section */}
 					<div className="number-section">
-						<div className="number-section-title">Dont Bet</div>
-						<div className="number-section-value">
-							Odds: ${bets.dontBetOdds[e]}
+						<div className="number-section-title">
+							Don't Odds <div>${bets.dontBetOdds[e]}</div>
 						</div>
 						<div className="comebet-value">
-							Flat: ${bets.dontBetFlats[e]}
+							Flat <div>${bets.dontBetFlats[e]}</div>
 						</div>
 
 						<div className="buttons">
@@ -116,7 +115,7 @@ const NumberSection = ({
 						className="placebet-number"
 						style={
 							pointOnNumber === e
-								? { backgroundColor: "lime", color: "black" }
+								? { backgroundColor: "gold", color: "black" }
 								: null
 						}
 					>
@@ -124,12 +123,11 @@ const NumberSection = ({
 					</div>
 					{/* Come bet section */}
 					<div className="number-section">
-						<div className="number-section-title">Come Bet</div>
-						<div className="number-section-value">
-							Odds: ${bets.comeBetOdds[e]}
+						<div className="number-section-title">
+							Come Odds <div>${bets.comeBetOdds[e]}</div>
 						</div>
 						<div className="number-section-value">
-							Flat: ${bets.comeBetFlats[e]}
+							Flat <div>${bets.comeBetFlats[e]}</div>
 						</div>
 
 						<div className="buttons">
@@ -149,7 +147,9 @@ const NumberSection = ({
 					</div>
 					{/* Place Bet Section */}
 					<div className="placebet-value">
-						<div>Place Bet ${bets.placeBets[e]}</div>
+						<div>
+							Place Bet <div>${bets.placeBets[e]}</div>
+						</div>
 
 						<div className="buttons">
 							<div

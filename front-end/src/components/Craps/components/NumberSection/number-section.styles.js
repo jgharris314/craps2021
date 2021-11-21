@@ -9,7 +9,6 @@ export const StyledNumberSection = styled.div`
 		flex-direction: column;
 		width: 100%;
 		text-align: center;
-		/* padding: 1%; */
 		margin: 5px;
 
 		&-number {
@@ -22,16 +21,14 @@ export const StyledNumberSection = styled.div`
 			);
 			display: flex;
 			justify-content: center;
-			height: 80px;
-			/* border: 1px solid black; */
+			height: 40px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 3px white;
 			border-radius: 5px;
 			align-items: center;
 			margin: 5px auto;
-			font-size: 7rem;
+			font-size: 3rem;
 			color: white;
 			width: 100%;
-			/* padding: 1%; */
 		}
 		&-value {
 			background-color: rgba(255, 255, 255, 0.18);
@@ -45,14 +42,13 @@ export const StyledNumberSection = styled.div`
 			flex-direction: column;
 			width: 100%;
 			justify-content: center;
-			font-size: 2.4rem;
-			/* border: 1px solid black; */
+			font-size: 1.6rem;
+
 			box-shadow: 0px 0px 5px black inset, 0px 0px 3px white;
 			border-radius: 5px;
 			align-items: center;
 			color: white;
 			margin: 5px auto;
-			/* padding: 1%; */
 		}
 	}
 
@@ -71,7 +67,7 @@ export const StyledNumberSection = styled.div`
 		&-increase {
 			margin: 0 auto;
 			padding: 0.4%;
-			background-color: lime;
+			background-color: #f37735;
 			width: 45%;
 			border-radius: 5px;
 			box-shadow: 0px 0px 5px black inset, 0px 0px 5px black;
@@ -118,6 +114,25 @@ export const StyledNumberSection = styled.div`
 		color: white;
 		margin: 5px auto;
 		/* padding: 1%; */
-		font-size: 2rem;
+		font-size: 1.6rem;
+	}
+
+	@media screen and (min-width: 720px) {
+		/* .number-section {
+			font-size: 2.2rem;
+		} */
+
+		.placebet-number {
+			font-size: 5rem;
+			height: 60px;
+		}
+
+		.number-section {
+			font-size: 2.2rem;
+		}
+
+		.placebet-value {
+			font-size: 2.2rem;
+		}
 	}
 `;
