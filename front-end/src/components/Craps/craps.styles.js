@@ -8,7 +8,7 @@ export const StyledCraps = styled.div`
 	flex-direction: column;
 	align-items: center;
 	min-height: 100vh;
-
+	font-size: 1.6rem;
 	.control-row {
 		display: flex;
 		width: 95%;
@@ -117,6 +117,7 @@ export const StyledCraps = styled.div`
 	}
 
 	@media screen and (min-width: 720px) {
+		font-size: 2.2rem;
 		.non-number-item {
 			font-size: 2.2rem;
 			width: 100%;
