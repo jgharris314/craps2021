@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { StyledCraps } from "./craps.styles";
-import NumberSection from "./components/PlaceBets/NumberSection";
+import NumberSection from "./components/NumberSection/NumberSection";
 import ComeBet from "./components/ComeBet/ComeBet";
 import Field from "./components/Field/Field";
 import PassLine from "./components/PassLine/PassLine";
@@ -469,8 +469,10 @@ const Craps = () => {
 					})}
 				</div>
 				<div className="control-column">
+					{/* TODO Add Bankroll Component */}
 					Bankroll {bankroll}
 					<br /> Denomination
+					{/* TODO Add DenominationSwitcher Component */}
 					<select onChange={handleIncrementChange}>
 						{bettingIncrements.map((e, index) => (
 							<option value={e} key={index}>
@@ -481,6 +483,7 @@ const Craps = () => {
 					<button className="roll-button" onClick={() => rollDice()}>
 						Roll em
 					</button>
+					{/* {/* TODO Add DiceDisplay Component */}
 					{dieOne} {dieTwo} {dieTotal} {pointOnNumber}
 				</div>
 			</div>
